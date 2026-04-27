@@ -1,28 +1,36 @@
-from datetime import datetime
-from zoneinfo import ZoneInfo
-
-timezones = {
-    "New York": "America/New_York",
-    "London": "Europe/London",
-    "Tokyo": "Asia/Tokyo",
-    "Accra": "Africa/Accra",
-    "Los Angeles": "America/Los_Angeles"
+cities = {
+    "New York": -4,
+    "London": 1,
+    "Tokyo": 9,
+    "Los Angeles": -7,
+    "Dubai": 4,
+    "Sydney": 10
 }
 
-base_city = input("Enter base city: ")
-meeting_time = input("Enter time (YYYY-MM-DD HH:MM): ")
+base_hour = 9
 
-dt = datetime.strptime(meeting_time, "%Y-%m-%d %H:%M")
-base_dt = dt.replace(tzinfo=ZoneInfo(timezones[base_city]))
+print("Timezone Meeting Planner")
+print("-" * 30)
 
-print("\nMeeting Time Conversions:\n")
+best_hour = None
+best_score = -1
 
-for city, tz in timezones.items():
-    converted = base_dt.astimezone(ZoneInfo(tz))
-    hour = converted.hour
+for hour in range(8, 18):
+    score = 0
 
-    status = ""
-    if hour < 8 or hour > 18:
-        status = " (outside business hours)"
+    for city, offset in cities.items():
+        local = hour + (offset - cities["New York"])
 
-    print(f"{city}: {converted.strftime('%Y-%m-%d %I:%M %p')}{status}")
+        if 8 <= local <= 18:
+            score += 1
+
+    if score > best_score:
+        best_score = score
+        best_hour = hour
+
+print(f"Best New York Time: {best_hour}:00")
+print()
+
+for city, offset in cities.items():
+    local = best_hour + (offset - cities["New York"])
+    print(f"{city}: {local}:00")
