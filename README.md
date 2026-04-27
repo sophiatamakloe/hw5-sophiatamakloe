@@ -2,37 +2,44 @@
 
 ## Project Overview
 
-This project solves a common global business problem: scheduling meetings across multiple time zones.
+This project solves a real business problem: scheduling meetings across global teams in different time zones.
 
-Instead of manually checking clocks in different cities, this planner automatically compares working-hour overlap and recommends the best meeting time.
+Instead of manually comparing clocks across cities, the planner automatically evaluates multiple meeting hours and recommends the best time with the strongest business-hour overlap.
 
-The tool is useful for remote teams, international clients, consulting firms, and distributed organizations.
+This is useful for:
+
+- Remote teams
+- International clients
+- Consulting firms
+- Global project managers
+- Distributed organizations
 
 ---
 
 ## What Makes This Project Interesting
 
-Many teams waste time coordinating schedules across countries.
+Many scheduling tools only convert time zones.
 
-This planner improves that process by:
+This planner goes further by:
 
 - Comparing multiple cities at once
-- Translating hours across time zones
+- Scoring candidate meeting times
 - Prioritizing business-hour availability
-- Recommending the strongest overlap window
+- Recommending the optimal meeting window
+- Presenting clean readable output
 
-This turns a simple time conversion task into a practical scheduling assistant.
+This turns time conversion into a lightweight decision-support tool.
 
 ---
 
 ## Cities Included
 
-- New York
-- London
-- Tokyo
-- Los Angeles
-- Dubai
-- Sydney
+- New York  
+- London  
+- Tokyo  
+- Los Angeles  
+- Dubai  
+- Sydney  
 
 ---
 
@@ -43,21 +50,36 @@ The program:
 1. Tests multiple meeting hours during the workday  
 2. Converts each hour into local time for every city  
 3. Checks whether each city falls within business hours (8 AM – 6 PM)  
-4. Scores each possible meeting time  
-5. Recommends the highest-scoring option
+4. Scores each meeting option  
+5. Selects the highest-scoring time  
+6. Displays all participant local times
 
 ---
 
-## Example Output
+## Improvements Made Through Iteration
 
-```text
-Timezone Meeting Planner
-------------------------------
-Best meeting time in New York: 9:00
+After testing the first version, I improved the project by:
 
-New York: 9:00
-London: 14:00
-Tokyo: 22:00
-Los Angeles: 6:00
-Dubai: 17:00
-Sydney: 23:00
+- Upgrading output formatting
+- Adding clearer labels
+- Showing participant local times
+- Adding reasoning for recommendation
+- Improving readability for real users
+
+This demonstrates learning through evaluation and refinement.
+
+---
+
+## How to Run
+
+1. Open Terminal  
+2. Navigate to the repository folder  
+3. Run:
+
+```bash
+python3 .agents/skills/timezone-meeting-planner/scripts/planner.py
+
+Open terminal inside the repository folder and run:
+
+```bash
+python3 .agents/skills/timezone-meeting-planner/scripts/planner.py
