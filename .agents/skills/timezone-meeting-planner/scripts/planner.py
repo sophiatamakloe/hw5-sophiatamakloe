@@ -33,8 +33,14 @@ for hour in range(8, 18):
         best_score = score
         best_hour = hour
 
-print(f"Best meeting time in {base_city}: {best_hour}:00")
+print("Recommended Best Meeting Time")
+print("-" * 30)
+print(f"Base City: {base_city}")
+print(f"Optimal Hour: {best_hour}:00")
 print()
+
+print("Participant Times")
+print("-" * 30)
 
 for city, offset in cities.items():
     local_hour = best_hour + (offset - cities[base_city])
@@ -45,3 +51,6 @@ for city, offset in cities.items():
         local_hour -= 24
 
     print(f"{city}: {local_hour}:00")
+
+print()
+print("Reason: Maximizes business-hour overlap.")
