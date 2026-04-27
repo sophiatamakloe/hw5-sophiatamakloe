@@ -80,6 +80,24 @@ This demonstrates learning through evaluation and refinement.
 python3 .agents/skills/timezone-meeting-planner/scripts/planner.py
 
 Open terminal inside the repository folder and run:
+Example Output
+Timezone Meeting Planner
+------------------------------
+Recommended Best Meeting Time
+
+Base City: New York
+Optimal Hour: 8:00
+
+Participant Times
+------------------------------
+New York: 8:00
+London: 13:00
+Tokyo: 21:00
+Los Angeles: 5:00
+Dubai: 16:00
+Sydney: 22:00
+
+Reason: Maximizes business-hour overlap.
 
 ```bash
 python3 .agents/skills/timezone-meeting-planner/scripts/planner.py
