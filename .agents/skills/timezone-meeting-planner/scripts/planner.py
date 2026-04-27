@@ -7,7 +7,7 @@ cities = {
     "Sydney": 10
 }
 
-base_hour = 9
+base_city = "New York"
 
 print("Timezone Meeting Planner")
 print("-" * 30)
@@ -19,18 +19,29 @@ for hour in range(8, 18):
     score = 0
 
     for city, offset in cities.items():
-        local = hour + (offset - cities["New York"])
+        local_hour = hour + (offset - cities[base_city])
 
-        if 8 <= local <= 18:
+        if local_hour < 0:
+            local_hour += 24
+        elif local_hour >= 24:
+            local_hour -= 24
+
+        if 8 <= local_hour <= 18:
             score += 1
 
     if score > best_score:
         best_score = score
         best_hour = hour
 
-print(f"Best New York Time: {best_hour}:00")
+print(f"Best meeting time in {base_city}: {best_hour}:00")
 print()
 
 for city, offset in cities.items():
-    local = best_hour + (offset - cities["New York"])
-    print(f"{city}: {local}:00")
+    local_hour = best_hour + (offset - cities[base_city])
+
+    if local_hour < 0:
+        local_hour += 24
+    elif local_hour >= 24:
+        local_hour -= 24
+
+    print(f"{city}: {local_hour}:00")
