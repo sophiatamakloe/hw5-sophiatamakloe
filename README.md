@@ -26,21 +26,20 @@ This planner goes further by:
 This turns simple time conversion into a lightweight decision-support tool.
 
 ---
-Reflections: The Architectural Intent
+
+Reflections & Evaluation
 Why I Chose This Skill
-I chose to build the Timezone Meeting Planner to solve for "Social and Operational Static." In a globalized economy, manual time conversion is a low-value task prone to human error. By architecting a tool that prioritizes business-hour overlap, I’ve created a "Zero-Static" scheduling environment that allows teams to focus on the meeting's substance rather than the logistics of the invite.
+I chose the Timezone Meeting Planner because it addresses a fundamental friction point in global operations. In a distributed workforce, coordinating synchronous communication across six different time zones is a high-cognitive-load task. I wanted to build an agentic skill that moves beyond simple time conversion into active Decision Support, automating the "Zero-Static" scheduling process.
 
 What Worked Well
-Multi-City Integration: The logic successfully aggregates time data for New York, London, Tokyo, Los Angeles, Dubai, and Sydney simultaneously.
+Automated Scoring Logic: The decision to "score" meeting windows based on business-hour overlap (08:00–18:00) worked exceptionally well. It allows the agent to provide a definitive recommendation rather than just a list of times.
 
-Scoring Algorithm: The transition from simple conversion to a "scoring" model allows the agent to recommend the optimal window based on professional availability (8 AM – 6 PM).
+Multi-Node Visibility: Integrating disparate global hubs (London, Dubai, Tokyo, etc.) into a single output provides immediate clarity for a project manager.
 
-Output Clarity: The final CLI output provides participant local times and the underlying reasoning, ensuring transparency for all stakeholders.
+What Limitations Remain
+Static Offsets: The current version uses fixed offsets. A more robust version would integrate the pytz library to account for seasonal Daylight Savings transitions automatically.
 
-Limitations & Future Iterations
-Daylight Savings Transitions: Current logic relies on fixed offsets; a future iteration would integrate a real-time pytz library to handle regional seasonal shifts automatically.
-
-Preference Weighting: Future versions could allow users to "weight" specific participants (e.g., ensuring the Lead Architect is never in a meeting past 8 PM).
+Participant Priority: Currently, the algorithm treats all cities with equal weight. A future iteration would allow for "Priority Participants" (e.g., ensuring a Lead Architect is never scheduled past their local 7 PM).
 
 
 ## Cities Included
