@@ -26,6 +26,22 @@ This planner goes further by:
 This turns simple time conversion into a lightweight decision-support tool.
 
 ---
+Reflections: The Architectural Intent
+Why I Chose This Skill
+I chose to build the Timezone Meeting Planner to solve for "Social and Operational Static." In a globalized economy, manual time conversion is a low-value task prone to human error. By architecting a tool that prioritizes business-hour overlap, I’ve created a "Zero-Static" scheduling environment that allows teams to focus on the meeting's substance rather than the logistics of the invite.
+
+What Worked Well
+Multi-City Integration: The logic successfully aggregates time data for New York, London, Tokyo, Los Angeles, Dubai, and Sydney simultaneously.
+
+Scoring Algorithm: The transition from simple conversion to a "scoring" model allows the agent to recommend the optimal window based on professional availability (8 AM – 6 PM).
+
+Output Clarity: The final CLI output provides participant local times and the underlying reasoning, ensuring transparency for all stakeholders.
+
+Limitations & Future Iterations
+Daylight Savings Transitions: Current logic relies on fixed offsets; a future iteration would integrate a real-time pytz library to handle regional seasonal shifts automatically.
+
+Preference Weighting: Future versions could allow users to "weight" specific participants (e.g., ensuring the Lead Architect is never in a meeting past 8 PM).
+
 
 ## Cities Included
 
